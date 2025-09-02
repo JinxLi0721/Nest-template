@@ -10,7 +10,9 @@ import {
 } from '@nestjs/common';
 import { EmployeeService } from './employee.service';
 import { Prisma, Role } from '@prisma/client';
+import { Throttle } from '@nestjs/throttler';
 
+@Throttle({})
 @Controller('employee')
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
